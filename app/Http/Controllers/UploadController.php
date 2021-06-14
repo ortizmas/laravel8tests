@@ -47,24 +47,20 @@ class UploadController extends Controller
 
     public function vimeoIndex()
     {
-        // $ch = curl_init();
-        // curl_setopt($ch, CURLOPT_URL, "https://www.howsmyssl.com/a/check");
-        // curl_setopt($ch, CURLOPT_SSLVERSION, 6); // This enforces TLS 1.2
-        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        // $response = curl_exec($ch);
-        // curl_close($ch);
-        // $tlsVer = json_decode($response, true);
-        // echo "<h1>Your TSL version is: <u>" . ( $tlsVer['tls_version'] ? $tlsVer['tls_version'] : 'no TLS support' ) . "</u></h1>";
-        // die();
         //dd(phpinfo());
-       $videos = []; // Vimeo::request('/me/videos', ['per_page' => 10], 'GET');
+       $videos = Vimeo::request('/me/videos', ['per_page' => 10], 'GET');
 
        return view('uploads.vimeo', compact('videos'));
     }
 
     public function vimeoUpload(Request $request) {
         if ($request->hasFile('file')) {
-            $response = Vimeo::upload($request->file);
+            $response = Vimeo::upload($request->file, [
+                "name" => $request->file->getClientOriginalName(),
+                'privacy' => [
+                    'view' => 'anybody'
+                ]
+                ]);
         }
 
         return redirect()->back();
