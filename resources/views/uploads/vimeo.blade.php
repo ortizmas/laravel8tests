@@ -24,7 +24,7 @@
                 <button class="btn btn-success mt-2 btn-md" type="submit">Subir</button>
             </form>
 
-            {{-- <div class="row">
+            <div class="row">
                 @foreach ($videos['body']['data'] as $video)
                 <div class="col-md-6">
                     <div class="card text-left">
@@ -34,11 +34,11 @@
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">{{ $video['name']}}</h4>
+                    </div>
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
-    @endforeach
-</div> --}}
-</div>
-</div>
 </div>
 @endsection
