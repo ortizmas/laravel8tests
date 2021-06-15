@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Vimeo\Laravel\VimeoServiceProvider::class,
+        Dawson\Youtube\YoutubeServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -230,7 +231,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Vimeo' => Vimeo\Laravel\Facades\Vimeo::class,
-
+        'Youtube' => Dawson\Youtube\Facades\Youtube::class,
     ],
 
 ];

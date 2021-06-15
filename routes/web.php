@@ -31,6 +31,9 @@ Route::get('/download/{file}', [UploadController::class, 'download'])->name('upl
 Route::get('vimeo', [UploadController::class, 'vimeoIndex'])->name('vimeo.index');
 Route::post('vimeo', [UploadController::class, 'vimeoUpload'])->name('vimeo.upload');
 
+Route::get('youtube', [UploadController::class, 'youtubeIndex'])->name('youtube.index');
+Route::post('youtube', [UploadController::class, 'youtubeUpload'])->name('youtube.upload');
+
 
 Route::get('video-stream', function () {
     $filePath = public_path('videos/video-1.mp4');
