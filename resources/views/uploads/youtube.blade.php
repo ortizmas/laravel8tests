@@ -33,7 +33,7 @@
 
                 <div class="form-group">
                     <label for="file">Subir arquivos</label>
-                    <input id="file" class="form-control" type="file" name="file">
+                    <input id="file" class="form-control" type="file" name="video">
                 </div>
 
                 <button class="btn btn-success mt-2 btn-md" type="submit">Subir</button>

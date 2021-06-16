@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Upload;
-use Youtube;
 use Illuminate\Http\Request;
 use Vimeo\Laravel\Facades\Vimeo;
+use Youtube;
 
 class UploadController extends Controller
 {
@@ -61,7 +61,7 @@ class UploadController extends Controller
                 'privacy' => [
                     'view' => 'anybody'
                 ]
-                ]);
+            ]);
         }
 
         return redirect()->back();
@@ -75,15 +75,13 @@ class UploadController extends Controller
     }
 
     public function youtubeUpload(Request $request) {
-        if ($request->hasFile('file')) {
-            $video = Youtube::upload($request->file('file')->getPathName(), [
-                'title'       => $request->input('title'),
-                'description' => $request->input('description')
-            ]);
+        dd($request->file('video')->getrealpath());
+        $video = Youtube::upload($request->file('video')->getPathName(), [
+            'title'       => $request->input('title'),
+            'description' => $request->input('description')
+        ]);
 
-            return redirect()->back()->with('success', "Video uploaded successfully. Video ID is ". $video->getVideoId());
-        }
-
+        return redirect()->back()->with('success', "Video uploaded successfully. Video ID is ". $video->getVideoId());
 
     }
 }
