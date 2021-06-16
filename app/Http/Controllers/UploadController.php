@@ -75,7 +75,7 @@ class UploadController extends Controller
     }
 
     public function youtubeUpload(Request $request) {
-        dd($request->file('video')->getrealpath());
+        //dd($request->file('video')->getPathName());
         $video = Youtube::upload($request->file('video')->getPathName(), [
             'title'       => $request->input('title'),
             'description' => $request->input('description')
