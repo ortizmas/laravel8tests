@@ -15,7 +15,7 @@
         <div class="card-body">
             @if (session('success'))
             <div class="alert alert-success">
-                {{ $success }}
+                {{ session('success')}}
             </div>
             @endif
 
@@ -39,8 +39,9 @@
                 <button class="btn btn-success mt-2 btn-md" type="submit">Subir</button>
             </form>
 
-            {{-- <div class="row">
-                @foreach ($videos['body']['data'] as $video)
+            <div class="row">
+                {{ $videos }}
+                {{-- @foreach ($videos['body']['data'] as $video)
                 <div class="col-md-6">
                     <div class="card text-left">
                         <div class="embed-responsive embed-responsive-16by9">
@@ -49,10 +50,10 @@
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">{{ $video['name']}}</h4>
-        </div>
-    </div>
-    @endforeach
-</div> --}}
+                    </div>
+                </div>
+                @endforeach --}}
+            </div>
 </div>
 </div>
 </div>
