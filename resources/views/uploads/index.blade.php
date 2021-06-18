@@ -34,5 +34,34 @@
             </div>
         </div>
     </div>
+
+    <div class="card mt-3">
+        <div class="card-header">
+            Lista de Videos
+        </div>
+        <div class="card-body">
+            <div class="row">
+                @foreach ($uploads as $item)
+                <div class="col-md-4 mb-2">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        {{-- <iframe src="https://player.vimeo.com/video/261874912?color=ff9933" width="100%" height="250"
+                            frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe> --}}
+                        {{-- <iframe src="/uploads/{{$item->file}}" width="100%" height="250" frameborder="0"
+                        allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe> --}}
+                        {{-- pathinfo($item->file, PATHINFO_EXTENSION) == 'mp4' --}}
+                        @if ($item->type == 'video')
+                        <video width="100%" poster="" controls>
+                            <source src="/uploads/{{$item->file}}" type="video/mp4">
+                            <source src="/uploads/{{$item->file}}" type="video/webm">
+                            <source src="/uploads/{{$item->file}}" type="video/ogg">
+                            <p>Seu navegador não têm compatibilidade com reprodução de vídeos.</p>
+                        </video>
+                        @endif
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

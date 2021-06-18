@@ -39,21 +39,54 @@
                 <button class="btn btn-success mt-2 btn-md" type="submit">Subir</button>
             </form>
 
-            {{-- <div class="row">
-                @foreach ($videos['body']['data'] as $video)
+            <div class="row">
                 <div class="col-md-6">
                     <div class="card text-left">
                         <div class="embed-responsive embed-responsive-16by9">
-                            {!! $video['embed']['html'] !!}
+                            {{-- allownetworking="internal" --}}
+                            {{-- <iframe width="100%" height="300"
+                                src="https://www.youtube.com/embed/TCeyIwFGkYo?list=RDCMUCrWvhVmt0Qac3HgsjQK62FQ"
+                                title="YouTube video player" allownetworking="internal" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe> --}}
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3hng-hmSv2Y"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen allownetworking="internal"></iframe>
+
+                            <br>
+                            <iframe src="https://player.vimeo.com/video/261874912?color=ff9933" width="560" height="315"
+                                frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                                allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">{{ $video['name']}}</h4>
+                        <h4 class="card-title">Nome do Video</h4>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    @endforeach
-</div> --}}
 </div>
-</div>
-</div>
+@endsection
+
+@section('scripts')
+{{-- <script>
+    addEvent(window,"load",inicializarEventos,false);
+
+    function inicializarEventos() {
+        var obj = document.getElementById("tutube");
+        addEvent(obj,"click",evento,false);
+    }
+
+    function evento(e) {
+    if(window.event) {
+        return false;
+    }
+    else
+        if(e) {
+            e.preventDefault();
+        }
+    }
+</script> --}}
 @endsection
