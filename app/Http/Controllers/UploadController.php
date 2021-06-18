@@ -69,19 +69,26 @@ class UploadController extends Controller
 
     public function youtubeIndex()
     {
-       $videos = [];
+       // $videos = Youtube::exists('b6JR-GOhAto');
+       $videos = Youtube::getVideo('Video 2','public', 'b6JR-GOhAto');
+       dd($videos);
 
        return view('uploads.youtube', compact('videos'));
     }
 
     public function youtubeUpload(Request $request) {
-        //dd($request->file('video')->getPathName());
-        $video = Youtube::upload($request->file('video')->getPathName(), [
-            'title'       => $request->input('title'),
-            'description' => $request->input('description')
-        ]);
+        // $file = $request->file('video');
+        // $file->getRealPath()
+        // dd($file->getPathName());
+        if ($request->hasFile('file')) {
+            $video = Youtube::upload($request->file('video')->getPathName(), [
+                'title'       => $request->input('title'),
+                'description' => $request->input('description')
+            ]);
 
-        return redirect()->back()->with('success', "Video uploaded successfully. Video ID is ". $video->getVideoId());
+            return redirect()->back()->with('success', "Video uploaded successfully. Video ID is ". $video->getVideoId());
+        }
 
+        return redirect()->back()->with('error', 'Error ocurred!');
     }
 }
